@@ -2,7 +2,7 @@ requests-html
 fastapi
 pydantic
 python-multipart
-# lxml_html_clean
+lxml_html_clean
 uvicorn==0.22.0
 scikit-learn
 langchain_huggingface
