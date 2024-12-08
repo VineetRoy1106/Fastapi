@@ -1,15 +1,9 @@
 requests-html
 fastapi
 pydantic
-lxml_html_clean
+python-multipart
+# lxml_html_clean
 uvicorn==0.22.0
+scikit-learn
 langchain_huggingface
-pinecone-client
-langchain_groq
-langchain_community
-pinecone-text
-python-dotenv
-nltk
-pypdf
-transformers
-langchain-community
+PyPDF2
