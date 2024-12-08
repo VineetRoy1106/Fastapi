@@ -1,0 +1,15 @@
+requests-html
+fastapi
+pydantic
+lxml_html_clean
+uvicorn==0.22.0
+langchain_huggingface
+pinecone-client
+langchain_groq
+langchain_community
+pinecone-text
+python-dotenv
+nltk
+pypdf
+transformers
+langchain-community
