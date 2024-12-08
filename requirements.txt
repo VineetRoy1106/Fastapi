@@ -6,4 +6,5 @@ python-multipart
 uvicorn==0.22.0
 scikit-learn
 langchain_huggingface
+langchain_community
 PyPDF2
