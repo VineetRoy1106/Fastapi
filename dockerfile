@@ -1,31 +1,48 @@
-# Base image
+# # Base image
+# # FROM python:3.9-slim
+# # FROM python:3.10-alpine
+
+# FROM python:3.7-slim-buster
+
+# # Set the working directory in the container
+# WORKDIR /mained
+
+# # Copy the requirements file into the container
+# COPY requirements.txt .
+
+
+
+# # Install only pip, setuptools, wheel first (helpful for installing other packages more efficiently)
+# RUN pip install --upgrade pip setuptools wheel
+
+# # Install dependencies
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# # Copy the entire application code into the container
+# COPY . .
+
+# # Expose the application port
+# EXPOSE 8000
+
+# # Run the application
+# CMD ["uvicorn", "mained:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+
 FROM python:3.9-slim
 
-# Set environment variables for CI/CD (replace with actual keys in GitHub Actions or Azure)
+# Set the working directory
+WORKDIR /mained
 
+# Copy the application code
+COPY . /mained
 
-# Set the working directory in the container
-WORKDIR /app
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip
 
-# Copy the requirements file into the container
-COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire application code into the container
-COPY . .
-
-
-ENV PINECONE_API_KEY=${PINECONE_API_KEY}
-ENV GROQ_API_KEY=${GROQ_API_KEY}
-
-
-RUN python -m nltk.downloader punkt
-# Expose the application port
 EXPOSE 8000
 
-
-
 # Run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "mained:app", "--host", "0.0.0.0", "--port", "8000"]
