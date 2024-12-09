@@ -105,3 +105,15 @@ async def ask_question_endpoint(chat_request: ChatRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+import os
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(
+        "mained:app",
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8000)),  # Render assigns PORT via an environment variable
+        log_level="info"
+    )
