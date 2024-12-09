@@ -101,7 +101,7 @@ def process_pdf(file: io.BytesIO):
                 dataset.append(text)
 
         # Generate embeddings for the dataset
-        embeddings_matrix = embeddings.encode(dataset, show_progress_bar=True)
+        embeddings_matrix = embeddings.embed_documents(dataset, show_progress_bar=True)
 
         # Return the raw dataset and its embeddings
         return {"dataset": dataset, "embeddings": embeddings_matrix}
